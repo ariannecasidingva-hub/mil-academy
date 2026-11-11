@@ -1,0 +1,93 @@
+/* Custom styles for MIL Academy */
+.nav-link {
+  @apply text-slate-600 hover:text-primary-600 font-medium transition-colors relative;
+}
+.nav-link.active {
+  @apply text-primary-700;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  border-radius: 2px;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Quiz specific */
+.quiz-option {
+  transition: all 0.15s ease;
+}
+.quiz-option:hover:not(.selected):not(.disabled) {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+.quiz-option.selected {
+  border-color: #2563eb;
+  background-color: #dbeafe;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+.quiz-option.correct {
+  border-color: #10b981;
+  background-color: #d1fae5;
+}
+.quiz-option.incorrect {
+  border-color: #ef4444;
+  background-color: #fee2e2;
+}
+
+/* Prevent text selection during quiz (mild deterrent) */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Line clamp utility fallback */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Video card hover */
+.video-card iframe {
+  pointer-events: none;
+}
+.video-card:hover iframe {
+  pointer-events: auto;
+}
+
+/* Progress bar animation */
+@keyframes progress {
+  from { width: 0; }
+}
+
+/* Timer pulse when low */
+.timer-warning {
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
